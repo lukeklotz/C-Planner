@@ -19,11 +19,13 @@ int main() {
     // testing here. DELETE.
     userMngr dataFile;
 
-    cout << "here" << endl;
+    linkedlist dataList;
 
-    dataFile.loadUserData();
+    dataFile.loadUserData(dataList);
 
-    cout << "done" << endl;
+    dataList.printList();
+
+
    
     while(createNewAcc != "Y" || createNewAcc != "N"){
         cout << "Create new account? Enter Y/N: ";

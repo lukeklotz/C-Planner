@@ -67,13 +67,12 @@ void userMngr::createNewAccount(){
     //create current users in file list
 }
 
-void userMngr::loadUserData(){
+void userMngr::loadUserData(linkedlist& userList){
     
     ifstream inputFile("usernames.txt");
 
     if (!inputFile.is_open()) {
         cerr << "Could not open the file!" << std::endl;
-        
     }
 
     char nameOnFile[101];
@@ -88,8 +87,6 @@ void userMngr::loadUserData(){
         userInfo newUser;
 
         newUser.setUserInfo(nameOnFile, passOnFile);
-    
-        linkedlist userList;
 
         userList.append(newUser);
 

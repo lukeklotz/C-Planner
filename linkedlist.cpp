@@ -67,3 +67,15 @@ void linkedlist::append(userInfo& aUser)
         tail = newNode;
     }
 }
+
+void linkedlist::printList()
+{
+    Node * curr = head;
+
+    while(curr)
+    {
+        cout << curr->newUser.getUsername();
+        cout << curr->newUser.getPassword() << endl;
+        curr = curr->next;
+    }
+}
