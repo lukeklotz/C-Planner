@@ -27,6 +27,8 @@ int main() {
         }
     }
 
+    cin.ignore(101, '\n');
+    
     cout << "username: ";
     cin.getline(username, maxSize, '\n');
 
@@ -41,7 +43,6 @@ int main() {
     isValid = mngr.isValidUser(info);
 
         do {
-            isValid = mngr.isValidUser(info);
 
             if (!isValid) {
                 cout << "Invalid credentials! Please try again or create a new account" << endl;
@@ -52,6 +53,11 @@ int main() {
                 cout << "password: ";
                 cin.getline(password, maxSize, '\n');
 
+                info.setUserInfo(username, password);
+                isValid = mngr.isValidUser(info);
+
+            } else {
+                break;
             }
 
         } while (!mngr.isValidUser(info));
