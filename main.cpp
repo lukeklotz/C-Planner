@@ -15,6 +15,15 @@ int main() {
     char password[maxSize];
 
     char* createNewAcc;
+
+    // testing here. DELETE.
+    userMngr dataFile;
+
+    cout << "here" << endl;
+
+    dataFile.loadUserData();
+
+    cout << "done" << endl;
    
     while(createNewAcc != "Y" || createNewAcc != "N"){
         cout << "Create new account? Enter Y/N: ";

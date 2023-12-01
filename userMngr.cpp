@@ -66,3 +66,34 @@ void userMngr::createNewAccount(){
 
     //create current users in file list
 }
+
+void userMngr::loadUserData(){
+    
+    ifstream inputFile("usernames.txt");
+
+    if (!inputFile.is_open()) {
+        cerr << "Could not open the file!" << std::endl;
+        
+    }
+
+    char nameOnFile[101];
+    char passOnFile[101];
+
+    while(!inputFile.eof()){
+
+        
+        inputFile.getline(nameOnFile, 101, ';');
+        inputFile.getline(passOnFile, 101, '\n');
+
+        userInfo newUser;
+
+        newUser.setUserInfo(nameOnFile, passOnFile);
+    
+        linkedlist userList;
+
+        userList.append(newUser);
+
+    }
+    inputFile.close();
+    
+}

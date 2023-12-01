@@ -20,7 +20,6 @@ class linkedlist{
         int size;
 
         void destroy();
-        void append(userInfo& aUser);
         void copy(linkedlist& list);
 
     public:
@@ -28,6 +27,7 @@ class linkedlist{
         void copy(const linkedlist& list);
         linkedlist& operator= (linkedlist&& list);
 
+        void append(userInfo& aUser);
         void printList();
 
 };

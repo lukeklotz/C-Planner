@@ -12,5 +12,5 @@ class userMngr
         bool doesUserExist(userInfo userFile);
         void createNewAccount();
         void writeNewProfile();
-        void allUserData();
+        void loadUserData();
 };
