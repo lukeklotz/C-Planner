@@ -8,4 +8,5 @@ class userMngr
         userInfo user;
     public:
         bool isValidUser(userInfo userFile); 
+        void createNewAccount();
 };
