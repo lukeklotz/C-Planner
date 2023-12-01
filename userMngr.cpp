@@ -38,6 +38,7 @@ bool userMngr::isValidUser(userInfo userFile){
     return false;
 }
 
+
 void userMngr::createNewAccount(){
     
     char username[101];
@@ -48,6 +49,20 @@ void userMngr::createNewAccount(){
 
     cout << "Enter password: ";
     cin >> password;
+
+    userInfo newUser;
+    userMngr checkUser;
+
+    newUser.setUserInfo(username, password);
+
+    /*while(!checkUser.doesUserExist(newUser)){ // TODO: create this function !!
+        cout << "Enter username: ";
+        cin >> username;
+
+        cout << "Enter password: ";
+        cin >> password;
+    }*/
+    
 
     //create current users in file list
 }

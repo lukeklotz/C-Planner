@@ -41,7 +41,7 @@ int main() {
     isValid = mngr.isValidUser(info);
 
         do {
-            mngr.isValidUser(info);
+            isValid = mngr.isValidUser(info);
 
             if (!isValid) {
                 cout << "Invalid credentials! Please try again or create a new account" << endl;
