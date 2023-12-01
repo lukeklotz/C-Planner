@@ -51,3 +51,19 @@ linkedlist& linkedlist::operator= (linkedlist&& list)
     return *this;
 
 }
+
+void linkedlist::append(userInfo& aUser)
+{
+    Node * newNode = new Node(aUser);
+    newNode->next = nullptr;
+    Node * curr = head;
+    Node * prev = nullptr;
+    if(!head){
+        head = newNode;
+        tail = newNode;
+    } else {
+        //insert at tail
+        tail->next = newNode;
+        tail = newNode;
+    }
+}

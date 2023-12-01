@@ -9,7 +9,6 @@ using namespace std;
 
 int main() {
     
-    
     const int maxSize = 255;
 
     char username[maxSize];
@@ -43,7 +42,6 @@ int main() {
     isValid = mngr.isValidUser(info);
 
         do {
-
             if (!isValid) {
                 cout << "Invalid credentials! Please try again or create a new account" << endl;
 
@@ -55,9 +53,6 @@ int main() {
 
                 info.setUserInfo(username, password);
                 isValid = mngr.isValidUser(info);
-
-            } else {
-                break;
             }
 
         } while (!mngr.isValidUser(info));
