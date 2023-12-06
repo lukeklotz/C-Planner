@@ -13,4 +13,5 @@ class userMngr
         void createNewAccount();
         void writeNewProfile();
         void loadUserData(linkedlist& list);
+        userInfo enterUserInfo();
 };

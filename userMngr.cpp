@@ -37,8 +37,6 @@ bool userMngr::isValidUser(userInfo userFile){
     inputFile.close();
     return false;
 }
-
-
 void userMngr::createNewAccount(){
     
     char username[101];
@@ -66,8 +64,8 @@ void userMngr::createNewAccount(){
 
     //create current users in file list
 }
-
 void userMngr::loadUserData(linkedlist& userList){
+
     
     ifstream inputFile("usernames.txt");
 
@@ -93,4 +91,22 @@ void userMngr::loadUserData(linkedlist& userList){
     }
     inputFile.close();
     
+}
+userInfo userMngr::enterUserInfo(){
+
+    const int maxSize = 255;
+
+    char username[maxSize];
+    char password[maxSize];
+
+    cout << "username: ";
+    cin.getline(username, maxSize, '\n');
+
+    cout << "password: ";
+    cin.getline(password, maxSize, '\n');
+
+    userInfo info;
+    info.setUserInfo(username, password);
+
+    return info;
 }

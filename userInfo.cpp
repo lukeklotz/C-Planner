@@ -24,3 +24,8 @@ char* userInfo::getUsername(){
 char* userInfo::getPassword(){
     return password;
 }
+
+void userInfo::printCurrUser(){
+    cout << username << endl;
+    cout << password << endl;
+}

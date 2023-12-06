@@ -11,4 +11,5 @@ class userInfo
         void setUserInfo(char* username, char* password);
         char* getUsername();
         char* getPassword();
+        void printCurrUser(); //test function
 };
