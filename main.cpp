@@ -8,42 +8,52 @@ using namespace std;
 
 
 int main() {
-    
-    //const int maxSize = 255;
 
-    //char username[maxSize];
-    //char password[maxSize];
-
-    char createNewAcc;
-
-    // load current user data
     userMngr dataFile;
     linkedlist dataList;
 
     dataFile.loadUserData(dataList);
+
+    char createNewAcc;
+    
+    
+    userMngr newUser;
+    userInfo info;
+    
+    
+    bool isValid = false;
+
 
     while (createNewAcc != 'Y' && createNewAcc != 'N') {
         cout << "Create new account? Enter Y/N: ";
         cin >> createNewAcc;
         if (createNewAcc == 'Y') {
             // create new account
-
+            cin.ignore(101, '\n');
+            info = newUser.enterUserInfo();
+            isValid = newUser.isAvailableUser(info);
+            do {
+                if (!isValid) {
+                    cout << "That name is already taken. Please choose a differnt username: " << endl;
+                    info = newUser.enterUserInfo(); 
+                    isValid = newUser.isAvailableUser(info);
+                }
+            } while (!newUser.isAvailableUser(info));
+            //write new user data
+            newUser.writeUserData(dataList, info);
         } else {
             break;
         }
     }
 
-    cin.ignore(101, '\n');
+    //cin.ignore(101, '\n');
 
-    userInfo info;
-    userMngr newUser;
+    //info = newUser.enterUserInfo(); 
+    //info.printCurrUser();
 
-    info = newUser.enterUserInfo(); 
-    info.printCurrUser();
 
-    bool isValid = false;
+    /*
     isValid = newUser.isValidUser(info);
-
         do {
             if (!isValid) {
                 cout << "That name is already taken. Please choose a differnt username: " << endl;
@@ -54,6 +64,7 @@ int main() {
             }
 
         } while (!newUser.isValidUser(info));
+    */
 
     cout << "Welcome!" << endl;
     

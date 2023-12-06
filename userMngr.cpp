@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool userMngr::isValidUser(userInfo userFile){
+bool userMngr::isAvailableUser(userInfo userFile){
     
     ifstream inputFile("usernames.txt");
 
@@ -49,20 +49,9 @@ void userMngr::createNewAccount(){
     cin >> password;
 
     userInfo newUser;
-    userMngr checkUser;
 
     newUser.setUserInfo(username, password);
 
-    /*while(!checkUser.doesUserExist(newUser)){ // TODO: create this function !!
-        cout << "Enter username: ";
-        cin >> username;
-
-        cout << "Enter password: ";
-        cin >> password;
-    }*/
-    
-
-    //create current users in file list
 }
 void userMngr::loadUserData(linkedlist& userList){
 
@@ -91,6 +80,25 @@ void userMngr::loadUserData(linkedlist& userList){
     }
     inputFile.close();
     
+}
+
+void userMngr::writeUserData(linkedlist& userList, userInfo newUser){
+    // Assuming 'userList' is not used in this function
+
+    // Open the file in append mode
+    ofstream outputFile("usernames.txt", ios::app);
+
+    if (outputFile.is_open()) {
+        // Write the username and password to the file
+        outputFile << newUser.getUsername() << ";";
+        outputFile <<newUser.getPassword() << "\n";
+
+        // Close the file
+        outputFile.close();
+        cout << "User data written successfully.\n";
+    } else {
+        cerr << "Error opening the file.\n";
+    }
 }
 userInfo userMngr::enterUserInfo(){
 

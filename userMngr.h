@@ -8,10 +8,11 @@ class userMngr
         userInfo user;
         linkedlist list;
     public:
-        bool isValidUser(userInfo userFile);
+        bool isAvailableUser(userInfo userFile);
         bool doesUserExist(userInfo userFile);
         void createNewAccount();
         void writeNewProfile();
         void loadUserData(linkedlist& list);
+        void writeUserData(linkedlist& list, userInfo newUser);
         userInfo enterUserInfo();
 };
