@@ -28,14 +28,14 @@ bool userMngr::isValidUser(userInfo userFile){
         inputFile.getline(nameOnFile, 101, ';');
         inputFile.getline(passOnFile, 101, '\n');
 
-        if(strcmp(passOnFile, pass) == 0 && strcmp(nameOnFile, name) == 0) {
+        if(strcmp(nameOnFile, name) == 0) {
             inputFile.close(); // Close the file before returning
-            return true;      // Return true if the user is valid
+            return false;      // Return false if the username is already taken
         }
 
     }
     inputFile.close();
-    return false;
+    return true;
 }
 void userMngr::createNewAccount(){
     

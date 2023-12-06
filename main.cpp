@@ -27,7 +27,7 @@ int main() {
         cin >> createNewAcc;
         if (createNewAcc == 'Y') {
             // create new account
-            
+
         } else {
             break;
         }
@@ -46,7 +46,7 @@ int main() {
 
         do {
             if (!isValid) {
-                cout << "Invalid credentials! Please try again or create a new account" << endl;
+                cout << "That name is already taken. Please choose a differnt username: " << endl;
 
                 info = newUser.enterUserInfo(); 
 
