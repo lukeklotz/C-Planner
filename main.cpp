@@ -23,6 +23,11 @@ int main() {
     
     bool isValid = false;
 
+    /****************************/
+    /*                          */
+    /*------CREATE ACCOUNT------*/
+    /*                          */
+    /****************************/
 
     while (createNewAcc != 'Y' && createNewAcc != 'N') {
         cout << "Create new account? Enter Y/N: ";
@@ -45,6 +50,13 @@ int main() {
             break;
         }
     }
+
+
+    /****************************/
+    /*                          */
+    /*----------LOGIN-----------*/
+    /*                          */
+    /****************************/
 
     //cin.ignore(101, '\n');
 
