@@ -1,5 +1,8 @@
-create new account []
+create new account [x]
     - check if username is unique
     - write user and pass to usernames.txt file and save to linkedlist 
 load usernames.txt into linkedlist [x]
-create enterUserInfo() function for userMngr[]
+create enterUserInfo() function for userMngr[x]
+
+
+figure out how to save unique files for each user[x]
