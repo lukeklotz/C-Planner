@@ -19,6 +19,7 @@ int main() {
     
     userMngr newUser;
     userInfo info;
+
     
     
     bool isValid = false;
@@ -29,9 +30,29 @@ int main() {
     /*                          */
     /****************************/
 
-    while (createNewAcc != 'Y' && createNewAcc != 'N') {
-        cout << "Create new account? Enter Y/N: ";
-        cin >> createNewAcc;
+    char hasAccount;
+    cout << "Have an account? Enter Y/N:";
+    cin >> hasAccount;
+    if(hasAccount == 'Y'){
+	
+	cin.ignore(101, '\n');
+	info = newUser.enterUserInfo();
+	isValid = newUser.isValidUser(info); 
+
+	if(isValid == false) {
+		while(isValid == false){
+			cout << "username already taken!" << endl;
+			
+			info = newUser.enterUserInfo();
+			isValid = newUser.isValidUser(info);	
+		}	
+	}	
+   
+    } else { //create new account
+	
+    	while (createNewAcc != 'Y' && createNewAcc != 'N') {
+       		cout << "Create new account? Enter Y/N: ";
+        	cin >> createNewAcc;
         if (createNewAcc == 'Y') {
             // create new account
             cin.ignore(101, '\n');
@@ -49,36 +70,9 @@ int main() {
         } else {
             break;
         }
+    	}
     }
 
+	cout << "welcome!" << endl;
 
-    /****************************/
-    /*                          */
-    /*----------LOGIN-----------*/
-    /*                          */
-    /****************************/
-
-    //cin.ignore(101, '\n');
-
-    //info = newUser.enterUserInfo(); 
-    //info.printCurrUser();
-
-
-    /*
-    isValid = newUser.isValidUser(info);
-        do {
-            if (!isValid) {
-                cout << "That name is already taken. Please choose a differnt username: " << endl;
-
-                info = newUser.enterUserInfo(); 
-
-                break;
-            }
-
-        } while (!newUser.isValidUser(info));
-    */
-
-    cout << "Welcome!" << endl;
-    
-
-}
+ }

@@ -37,6 +37,34 @@ bool userMngr::isAvailableUser(userInfo userFile){
     inputFile.close();
     return true;
 }
+
+bool userMngr::isValidUser(userInfo userFile)
+{
+	ifstream inputFile("usernames.txt");
+	
+	if(!inputFile.is_open()) {
+		cerr << "Count not open the file!" <<std::endl;
+		return 1;	
+	}
+	
+	char* name = userFile.getUsername();
+	char* pass = userFile.getPassword();
+	
+	char nameOnFile[101];
+	char passOnFile[101];
+
+	while(!inputFile.eof())
+	{
+		inputFile.getline(nameOnFile, 101, ';');
+		inputFile.getline(passOnFile, 101, '\n');
+
+		if(strcmp(nameOnFile, name) == 0 && strcmp(passOnFile, pass) == 0){
+			return true;
+		}
+	}
+	inputFile.close();
+	return false;
+}
 void userMngr::createNewAccount(){
     
     char username[101];
@@ -90,6 +118,7 @@ void userMngr::writeUserData(linkedlist& userList, userInfo newUser){
 
     if (outputFile.is_open()) {
         // Write the username and password to the file
+	cout << "here" << endl;
         outputFile << newUser.getUsername() << ";";
         outputFile <<newUser.getPassword() << "\n";
 

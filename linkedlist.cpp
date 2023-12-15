@@ -28,7 +28,7 @@ void linkedlist::copy(linkedlist& list)
     while(currSource)
     {
         currDestination->next = new Node(currSource->newUser);
-        currSource - currSource->next;
+        currSource = currSource->next;
         currDestination = currDestination->next;
 
     }
