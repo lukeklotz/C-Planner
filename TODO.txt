@@ -6,3 +6,9 @@ create enterUserInfo() function for userMngr[x]
 
 
 figure out how to save unique files for each user[x]
+	- when a new account is created, that account becomes associated with a unique key
+	- the unique key is used to locate their folder in the database
+
+
+fix linked list
+	- not appending correctly for new account creation

@@ -147,3 +147,16 @@ userInfo userMngr::enterUserInfo(){
 
     return info;
 }
+
+bool userMngr::quit(userInfo newUser)
+{
+	if(strcmp(newUser.getUsername(), "q") == 0){
+		return true;
+	}	
+
+	return false;
+}
+
+
+
+

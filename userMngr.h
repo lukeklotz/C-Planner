@@ -12,6 +12,7 @@ class userMngr
 	bool isAvailableUser(userInfo userFile);
         bool doesUserExist(userInfo userFile);
 	bool isValidUser(userInfo userFile);
+	bool quit(userInfo userFile);
 	
         void createNewAccount();
         void writeNewProfile();

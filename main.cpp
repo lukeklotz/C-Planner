@@ -2,9 +2,11 @@
 #include <fstream>
 #include <string>
 #include <cstring>
+#include <string>
 #include "userMngr.h"
 
 using namespace std;
+
 
 
 int main() {
@@ -20,8 +22,9 @@ int main() {
     userMngr newUser;
     userInfo info;
 
-    
-    
+    dataList.printList();    
+
+
     bool isValid = false;
 
     /****************************/
@@ -41,12 +44,13 @@ int main() {
 
 	if(isValid == false) {
 		while(isValid == false){
-			cout << "username already taken!" << endl;
+			cout << "The username or password you entered is incorrect!" << endl;
 			
 			info = newUser.enterUserInfo();
 			isValid = newUser.isValidUser(info);	
 		}	
 	}	
+
    
     } else { //create new account
 	
@@ -64,15 +68,27 @@ int main() {
                     info = newUser.enterUserInfo(); 
                     isValid = newUser.isAvailableUser(info);
                 }
-            } while (!newUser.isAvailableUser(info));
+            } while (!newUser.isAvailableUser(info) || newUser.quit(info));
             //write new user data
             newUser.writeUserData(dataList, info);
+		
+	
+	    dataList.append(info);
+	    dataList.printList();     
+	
+	
         } else {
             break;
-        }
+      	}
     	}
     }
 
 	cout << "welcome!" << endl;
-
- }
+	
+	string userInput;
+	 
+	while (userInput != "q") {
+        	cout << "Enter 'q' to quit: ";
+        	cin >> userInput;
+   	}	
+}
